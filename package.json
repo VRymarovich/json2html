@@ -1,0 +1,25 @@
+{
+  "name": "json2html",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VRymarovich/json2html"
+  },
+  "keywords": [
+    "json",
+    "html",
+    "convert",
+    "javascript"
+  ],
+  "author": "Vasiliy Rymarovich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VRymarovich/json2html/issues"
+  },
+  "homepage": "https://github.com/VRymarovich/json2html"
+}
