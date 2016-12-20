@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:js": "browserify src/index.js -o dist/json2html.js",
+    "watch:js": "watchify src/index.js -o dist/json2html.js -d",
+    "build": "npm run build:js",
+    "watch": "npm run watch:js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,9 @@
   "bugs": {
     "url": "https://github.com/VRymarovich/json2html/issues"
   },
-  "homepage": "https://github.com/VRymarovich/json2html"
+  "homepage": "https://github.com/VRymarovich/json2html",
+  "devDependencies": {
+    "browserify": "^13.1.1",
+    "watchify": "^3.8.0"
+  }
 }
