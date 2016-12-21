@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:js": "browserify src/index.js -o dist/json2html.js",
-    "watch:js": "watchify src/index.js -o dist/json2html.js -d",
-    "build": "npm run build:js",
-    "watch": "npm run watch:js"
+    "build:js": "browserify --s json2html src/index.js -o dist/json2html.js",
+    "watch:js": "watchify --s json2html src/index.js -o dist/json2html.js -d",
+    "watch:css": "stylus -w src/style.css -o dist/json2html.css",
+    "build:css": "stylus src/style.css -o dist/json2html.css",
+    "build": "npm run build:css && npm run build:js",
+    "watch": "npm run watch:css && npm run watch:js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
   "homepage": "https://github.com/VRymarovich/json2html",
   "devDependencies": {
     "browserify": "^13.1.1",
+    "stylus": "^0.54.5",
     "watchify": "^3.8.0"
   }
 }

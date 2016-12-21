@@ -6,8 +6,11 @@
  * @param  {Object} path
  * @return {String}
  */
-module.exports = {
-  json2html: function(obj, transform, path) {
+module.exports = function convert(obj, transform, path){
+    return json2html(obj, transform, path);
+};
+
+function json2html(obj, transform, path){
     var transformObj = transform;
     var txt = '';
     for (var key in obj){
@@ -43,5 +46,4 @@ module.exports = {
         }
     }
     return txt;
-  }
-};
+}

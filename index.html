@@ -2,8 +2,47 @@
 <html>
   <head>
     <title>json2html</title>
+      <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/json2html.css">
   </head>
   <body>
+    <h2>JSON2HTML converter</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Input JSON</h3>
+            <textarea id="inputJSON">
+            </textarea>
+        </div>
+        <div class="col-md-3">
+            <h3>Transform JSON</h3>
+            <textarea id="transformJSON">
+            </textarea>
+        </div>
+        <div class="col-md-1">
+            <div class="resultArea">
+                <button id="resultBut" class="btn btn-default" type="submit">Get html</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>Result</h3>
+            <div id="output">here comes the html</div>
+        </div>
+    </div>
     <script src="dist/json2html.js" type="text/javascript"></script>
+    <script>
+        var json = '{"@id":"163","surface-form":"giovani","sense-list":{"sense":[{"@id":"0","@num-tags":"3","base-form":"giovane","morpho-tag-list":{"morpho-tag":[{"@id":"1","#text":"+Noun"},{"@id":"2","#text":"+Masc"},{"@id":"3","#text":"+Pl"}]}},{"@id":"1","@num-tags":"3","base-form":"giovane","morpho-tag-list":{"morpho-tag":[{"@id":"1","#text":"+Noun"},{"@id":"2","#text":"+Fem"},{"@id":"3","#text":"+Pl"}]}},{"@id":"2","@num-tags":"3","base-form":"giovane","morpho-tag-list":{"morpho-tag":[{"@id":"1","#text":"+Adj"},{"@id":"2","#text":"+Masc"},{"@id":"3","#text":"+Pl"}]}},{"@id":"3","@num-tags":"3","base-form":"giovane","morpho-tag-list":{"morpho-tag":[{"@id":"1","#text":"+Adj"},{"@id":"2","#text":"+Fem"},{"@id":"3","#text":"+Pl"}]}}]},"translations":[{"word":"giovane","translation":[{"text":"giovane","pos":"adjective","tr":[{"text":"молодой","pos":"adjective","syn":[{"text":"юный","pos":"adjective"},{"text":"молодежный","pos":"adjective"},{"text":"неопытный","pos":"adjective"},{"text":"младой","pos":"adjective"}],"mean":[{"text":"giovanile"}],"ex":[{"text":"giovane donna","tr":[{"text":"молодая женщина"}]},{"text":"giovane età","tr":[{"text":"юный возраст"}]}]}]},{"text":"giovane","pos":"noun","gen":"m","tr":[{"text":"молодой человек","pos":"noun","mean":[{"text":"giovanotto"}]},{"text":"юноша","pos":"noun","gen":"м","syn":[{"text":"парень","pos":"noun","gen":"м"}],"mean":[{"text":"ragazzo"}]},{"text":"девушка","pos":"noun","gen":"ж"},{"text":"молодец","pos":"noun"}]}]},{"word":"giovane","translation":[{"text":"giovane","pos":"adjective","tr":[{"text":"молодой","pos":"adjective","syn":[{"text":"юный","pos":"adjective"},{"text":"молодежный","pos":"adjective"},{"text":"неопытный","pos":"adjective"},{"text":"младой","pos":"adjective"}],"mean":[{"text":"giovanile"}],"ex":[{"text":"giovane donna","tr":[{"text":"молодая женщина"}]},{"text":"giovane età","tr":[{"text":"юный возраст"}]}]}]},{"text":"giovane","pos":"noun","gen":"m","tr":[{"text":"молодой человек","pos":"noun","mean":[{"text":"giovanotto"}]},{"text":"юноша","pos":"noun","gen":"м","syn":[{"text":"парень","pos":"noun","gen":"м"}],"mean":[{"text":"ragazzo"}]},{"text":"девушка","pos":"noun","gen":"ж"},{"text":"молодец","pos":"noun"}]}]},{"word":"giovane","translation":[{"text":"giovane","pos":"adjective","tr":[{"text":"молодой","pos":"adjective","syn":[{"text":"юный","pos":"adjective"},{"text":"молодежный","pos":"adjective"},{"text":"неопытный","pos":"adjective"},{"text":"младой","pos":"adjective"}],"mean":[{"text":"giovanile"}],"ex":[{"text":"giovane donna","tr":[{"text":"молодая женщина"}]},{"text":"giovane età","tr":[{"text":"юный возраст"}]}]}]},{"text":"giovane","pos":"noun","gen":"m","tr":[{"text":"молодой человек","pos":"noun","mean":[{"text":"giovanotto"}]},{"text":"юноша","pos":"noun","gen":"м","syn":[{"text":"парень","pos":"noun","gen":"м"}],"mean":[{"text":"ragazzo"}]},{"text":"девушка","pos":"noun","gen":"ж"},{"text":"молодец","pos":"noun"}]}]},{"word":"giovane","translation":[{"text":"giovane","pos":"adjective","tr":[{"text":"молодой","pos":"adjective","syn":[{"text":"юный","pos":"adjective"},{"text":"молодежный","pos":"adjective"},{"text":"неопытный","pos":"adjective"},{"text":"младой","pos":"adjective"}],"mean":[{"text":"giovanile"}],"ex":[{"text":"giovane donna","tr":[{"text":"молодая женщина"}]},{"text":"giovane età","tr":[{"text":"юный возраст"}]}]}]},{"text":"giovane","pos":"noun","gen":"m","tr":[{"text":"молодой человек","pos":"noun","mean":[{"text":"giovanotto"}]},{"text":"юноша","pos":"noun","gen":"м","syn":[{"text":"парень","pos":"noun","gen":"м"}],"mean":[{"text":"ragazzo"}]},{"text":"девушка","pos":"noun","gen":"ж"},{"text":"молодец","pos":"noun"}]}]}]}';
+        var transformObj = '{"morpho-tag-list":{"tag":"ul", "class":"list-inline", "style":""},"morpho-tag-list_object":{"tag":"ul", "class":"list-inline", "style":""},"morpho-tag-list_string":{"tag":"li", "class":"", "style":""},"morpho-tag_array":{"tag":"ul", "class":"list-inline", "style":""},"morpho-tag_object":{"tag":"li", "class":"", "style":""},"base-form_array":{"tag":"ul", "class":"list-inline", "style":""},"tr_array":{"tag":"ol", "class":"", "style":"  "},"tr_object":{"tag":"li", "class":"", "style":""},"base-form_string":{"tag":"li", "class":"", "style":""},"translation_array_input":{"tag":"input", "class":"", "style":""},"translations_array_key":{"tag":"div", "class":"", "style":"", "value":"Переводы:"},"translation_array_key":{"tag":"small", "class":"", "style":"", "value":"Перевод:"},"translation_object":{"tag":"div", "class":"", "style":"background-color:yellow;"},"surface-form_string":{"tag":"h2", "class":"", "style":""},"pos_string":{"tag":"div", "class":"", "style":"font-size:10px;"},"gen_string":{"tag":"div", "class":"", "style":"font-size:10px;"},"asp_string":{"tag":"div", "class":"", "style":"display:none;font-size:10px;"},"syn_array":{"tag":"ol", "class":"", "style":""},"syn_array_key":{"tag":"div", "class":"", "style":"color:red;", "value":"Синонимы:"},"syn_object":{"tag":"li", "class":"", "style":""},"mean_array":{"tag":"ol", "class":"list-inline", "style":""},"mean_object":{"tag":"li", "class":"", "style":"color:darkblue;"},"mean_array_key":{"tag":"div", "class":"", "style":"color:red", "value":"Схожие слова:"},"ex_array":{"tag":"ol", "class":"list-inline", "style":""},"ex_object":{"tag":"li", "class":"", "style":""},"ex_array_key":{"tag":"div", "class":"", "style":"color:red;font-style:italic;", "value":"Примеры:"}, "word_string":{"tag":"div", "class":"", "style":"font-style:italic;"}}';
+        
+        
+        
+        document.getElementById('resultBut').onclick = function()
+        {
+            var obj = JSON.parse(document.getElementById('inputJSON').value);
+            var transformb = JSON.parse(document.getElementById('transformJSON').value);
+            document.getElementById('output').innerHTML=json2html(obj, transformb, '');
+        }        
+
+    </script>
   </body>
 </html>
